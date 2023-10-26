@@ -1,0 +1,19 @@
+package com.service;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import java.util.List;
+
+@Service
+public class TransactionService {
+    @Autowired
+    private TransactionRepository transactionRepository;
+
+    public List<Transaction> getAllTransactions() {
+        return (List<Transaction>) transactionRepository.findAll();
+    }
+
+    public void addTransaction(Transaction transaction) {
+        transactionRepository.save(transaction);
+    }
+}

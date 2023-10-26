@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>ATM Simulation</title>
+</head>
+<body>
+    <h1>ATM Simulation</h1>
+    <p>Balance: $<span th:text="${balance}">1000.00</span></p>
+    
+    <!-- Deposit Form -->
+    <form action="/deposit" method="post">
+        <label for="depositAmount">Deposit Amount: $</label>
+        <input type="number" id="depositAmount" name="amount" step="0.01" required>
+        <button type="submit">Deposit</button>
+    </form>
+
+    <!-- Withdraw Form -->
+    <form action="/withdraw" method="post">
+        <label for="withdrawAmount">Withdraw Amount: $</label>
+        <input type="number" id="withdrawAmount" name="amount" step="0.01" required>
+        <button type="submit">Withdraw</button>
+    </form>
+
+    <!-- Transfer Form -->
+    <form action="/transfer" method="post">
+        <label for="transferAmount">Transfer Amount: $</label>
+        <input type="number" id="transferAmount" name="amount" step="0.01" required>
+        <label for="recipient">Recipient: </label>
+        <input type="text" id="recipient" name="recipient" required>
+        <button type="submit">Transfer</button>
+    </form>
+
+    <!-- Transaction History -->
+    <h2>Transaction History</h2>
+    <ul>
+        <li th:each="transaction : ${transactions}">
+            <span th:text="${transaction.date}"></span>
+            <span th:text="${transaction.type}"></span>
+            <span th:text="${transaction.amount}"></span>
+        </li>
+    </ul>
+</body>
+</html>

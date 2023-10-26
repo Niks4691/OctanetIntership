@@ -1,0 +1,18 @@
+package com.entity;
+
+import javax.persistence.*;
+import java.util.Date;
+
+@Entity
+public class Transaction {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
+    @Temporal(TemporalType.TIMESTAMP)
+    private Date date;
+    private String type; // "Deposit", "Withdraw", "Transfer"
+    private Double amount;
+
+    // Constructors, getters, and setters
+}

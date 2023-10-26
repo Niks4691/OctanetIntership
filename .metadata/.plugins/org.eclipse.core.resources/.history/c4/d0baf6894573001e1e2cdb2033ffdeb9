@@ -1,0 +1,19 @@
+package com.entity;
+
+import java.util.Date;
+
+import javax.annotation.processing.Generated;
+
+@Entity
+public class Transaction {
+    @Id
+    @Generated(strategy = GenerationType.IDENTITY)
+    private Long id;
+
+    @Temporal(TemporalType.TIMESTAMP)
+    private Date date;
+    private String type; // "Deposit", "Withdraw", "Transfer"
+    private Double amount;
+
+    // Constructors, getters, and setters
+}

@@ -1,0 +1,11 @@
+package com.task;
+
+import java.util.List;
+
+public interface ATM {
+    List<String> getTransactionHistory();
+    double getBalance();
+    void withdraw(double amount);
+    void deposit(double amount);
+    void transfer(String toAccount, double amount);
+}
